@@ -10,7 +10,7 @@ ${product_price}    class:inventory_item_price
 ${check_out_button}    id:checkout
 
 *** Keywords ***
-Cart Title displays correctly
+Cart Title Displays Correctly
     ${text}=    Get Text    ${title}
     Should Be Equal    ${text}    Your Cart
 
@@ -35,7 +35,12 @@ Product Added To Cart Correctly
     Should Be Equal     ${actual_price}     ${price}
     Should Be Equal     ${actual_qty}     ${qty}
 
-Click checkout 
+Click Checkout Button 
     Click Button    ${check_out_button}
 
-
+Product and Qty Is Added Correctly
+    [Arguments]    ${product_list}    ${price_list}
+    FOR    ${l1-element}    ${l2-element}    IN ZIP    ${product_list}    ${price_list}
+        Log    ${l1-element} - ${l2-element}
+        Product Added To Cart Correctly    ${l1-element}    1     ${l2-element}
+    END

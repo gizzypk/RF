@@ -11,7 +11,7 @@ ${zipcode_txt}    id:postal-code
 ${continue_button}    id:continue
 
 *** Keywords ***
-Checkout Title displays correctly
+Checkout Title Displays Correctly
     ${text}=    Get Text    ${title}
     Should Be Equal    ${text}    Checkout: Your Information
 
@@ -21,7 +21,7 @@ Input Checkout Detail
     Input Text And Check Input Value Match       ${lastname_txt}    ${lastname}
     Input Text And Check Input Value Match       ${zipcode_txt}    ${zipcode}
 
-Click Continue 
+Click Continue Button 
     Click Button    ${continue_button}
 
 

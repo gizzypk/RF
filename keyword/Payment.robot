@@ -9,15 +9,15 @@ ${payment_total}    class:summary_total_label
 ${finish_button}    id:finish
 
 *** Keywords ***
-Payment calculate correctly
+Payment Calculate Correctly
     [Arguments]    ${price_list}
-    ${item_price}    Payment item is correct      ${price_list}
+    ${item_price}    Payment Item Is Correct      ${price_list}
     ${tax_price}    Set Variable    3.68
-    Payment tax is correct    ${tax_price} 
+    Payment Tax Is Correct    ${tax_price} 
     ${total_product_amount}    Evaluate      ${item_price} + ${tax_price} 
-    Payment total is correct    ${total_product_amount} 
+    Payment Total Is Correct    ${total_product_amount} 
 
-Payment item is correct 
+Payment Item Is Correct 
     [Arguments]    ${price_list}
     ${total_product_amount}    Set Variable    0
     FOR    ${element}    IN    @{price_list}
@@ -33,7 +33,7 @@ Payment item is correct
     Should Be Equal As Integers      ${total_product_amount}    ${acutal_product_amount} 
     RETURN    ${total_product_amount}
 
-Payment tax is correct
+Payment Tax Is Correct
     [Arguments]    ${total_price}
     ${actual_tax_amount}    Get Text    ${payment_tax} 
     ${actual_tax_amount}    Split String From Right	   ${actual_tax_amount}    ${None}    1
@@ -42,7 +42,7 @@ Payment tax is correct
     ${total_price}    Convert To Number    ${total_price}
     Should Be Equal As Integers      ${total_price}    ${actual_tax_amount} 
   
-Payment total is correct
+Payment Total Is Correct
     [Arguments]    ${total_price}
     ${actual_total_amount}    Get Text    ${payment_total} 
     ${actual_total_amount}    Split String From Right	   ${actual_total_amount}    ${None}    1
@@ -51,7 +51,7 @@ Payment total is correct
     ${total_price}    Convert To Number    ${total_price}
     Should Be Equal As Integers      ${total_price}    ${actual_total_amount} 
 
-Click finish
+Click Finish Button
     Click Element    ${finish_button}
     
 
