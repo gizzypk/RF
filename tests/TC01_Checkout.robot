@@ -7,7 +7,7 @@ Resource    ../keyword/Checkout.robot
 Resource    ../keyword/Payment.robot
 Resource    ../keyword/ThankYou.robot
 
-Suite Setup    Run Keyword    Open Web Browser
+Suite Setup    Open Web Browser
 Suite Teardown    Close Browser
 
 *** Test Cases ***

@@ -19,4 +19,5 @@
 - `RobotCode` or `Robot Framework Language Server`
 
 ## Execute Test ##
-`robot testcase/TC01_Checkout.robot`
+
+`robot tests/TC01_Checkout.robot`
