@@ -1,11 +1,11 @@
 *** Settings ***
-Resource    ../Keyword/Util.robot
-Resource    ../Keyword/LoginPage.robot
-Resource    ../keyword/ProductListPage.robot
-Resource    ../keyword/CartPage.robot
-Resource    ../keyword/CheckoutPage.robot
-Resource    ../keyword/PaymentPage.robot
-Resource    ../keyword/ThankYouPage.robot
+Resource    ../resources/Util.robot
+Resource    ../resources/LoginPage.robot
+Resource    ../resources/ProductListPage.robot
+Resource    ../resources/CartPage.robot
+Resource    ../resources/CheckoutPage.robot
+Resource    ../resources/PaymentPage.robot
+Resource    ../resources/ThankYouPage.robot
 
 Suite Setup    Util.Open Web Browser
 Suite Teardown    Close Browser
