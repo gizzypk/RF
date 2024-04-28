@@ -1,35 +1,35 @@
 *** Settings ***
 Resource    ../Keyword/Util.robot
-Resource    ../Keyword/Login.robot
-Resource    ../keyword/ProductList.robot
-Resource    ../keyword/Cart.robot
-Resource    ../keyword/Checkout.robot
-Resource    ../keyword/Payment.robot
-Resource    ../keyword/ThankYou.robot
+Resource    ../Keyword/LoginPage.robot
+Resource    ../keyword/ProductListPage.robot
+Resource    ../keyword/CartPage.robot
+Resource    ../keyword/CheckoutPage.robot
+Resource    ../keyword/PaymentPage.robot
+Resource    ../keyword/ThankYouPage.robot
 
-Suite Setup    Open Web Browser
+Suite Setup    Util.Open Web Browser
 Suite Teardown    Close Browser
 
 *** Test Cases ***
 TC_01 - E2E checkout cart
-    Title Should Be    Swag Labs
-    Logo Displays Swag Labs
-    Login Form Displays Correctly
-    Login with credentials    ${LOGIN_USERNAME}    ${LOGIN_PASSWORD}
-    Login Success With Empty Cart
+    SeleniumLibrary.Title Should Be    Swag Labs
+    Header.Logo Displays Swag Labs
+    LoginPage.Login Form Displays Correctly
+    LoginPage.Login with credentials    ${LOGIN_USERNAME}    ${LOGIN_PASSWORD}
+    ProductListPage.Login Success With Empty Cart
 
-    ${product_list}    Create List    Sauce Labs Backpack    Sauce Labs Bolt T-Shirt
-    ${price_list}    Click Add to Cart    ${product_list} 
-    Click View Cart 
-    Cart Title Displays Correctly
-    Product and Qty Is Added Correctly     ${product_list}     ${price_list}  
-    Click Checkout Button 
+    ${product_list}    BuiltIn.Create List    Sauce Labs Backpack    Sauce Labs Bolt T-Shirt
+    ${price_list}    ProductListPage.Click Add to Cart    ${product_list} 
+    Header.Click View Cart 
+    CartPage.Cart Title Displays Correctly
+    CartPage.Product and Qty Is Added Correctly     ${product_list}     ${price_list}  
+    CartPage.Click Checkout Button 
 
-    Checkout Title Displays Correctly
-    Input Checkout Detail    testname    testlastname    123456
-    Click Continue Button 
+    CheckoutPage.Checkout Title Displays Correctly
+    CheckoutPage.Input Checkout Detail    testname    testlastname    123456
+    CheckoutPage.Click Continue Button 
 
-    Payment Calculate Correctly    ${price_list}
-    Click Finish Button
-    Thank You Page Displays Correctly
+    PaymentPage.Payment Calculate Correctly    ${price_list}
+    PaymentPage.Click Finish Button
+    ThankYouPage.Thank You Page Displays Correctly
 
