@@ -2,10 +2,12 @@
 Library     SeleniumLibrary
 Resource    Util.robot
 
+
 *** Variables ***
-${username_txt}    id:user-name
-${password_txt}    id:password
-${login_button}    class:submit-button 
+${username_txt}     id:user-name
+${password_txt}     id:password
+${login_button}     class:submit-button
+
 
 *** Keywords ***
 Login Form Displays Correctly
@@ -15,6 +17,6 @@ Login Form Displays Correctly
 
 Login With Credentials
     [Arguments]    ${username_value}    ${password_value}
-    Input Text And Check Input Value Match    ${username_txt}   ${username_value}  
-    Input Password And Check Input Value Match     ${password_txt}     ${password_value}
-    Click Element    ${login_button} 
+    Input Text And Check Input Value Match    ${username_txt}    ${username_value}
+    Input Password And Check Input Value Match    ${password_txt}    ${password_value}
+    Click Element    ${login_button}
